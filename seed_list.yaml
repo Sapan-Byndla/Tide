@@ -1,0 +1,598 @@
+version: 1
+
+domain:
+  name: "Global Technical Ecosystem"
+  language: "en"
+  description: >
+    AI, developer tools, software engineering, infrastructure,
+    cloud, data, cybersecurity, and adjacent technical practices.
+
+collection:
+  historical_lookback_days: 60
+  historical_mode: bootstrap_once
+  daily_mode: incremental
+  default_timezone: UTC
+
+# ============================================================
+# 1. CORE AI
+# ============================================================
+
+topics:
+
+  - id: llms
+    name: "Large Language Models"
+    aliases:
+      - LLM
+      - language models
+      - foundation models
+
+  - id: reasoning_models
+    name: "Reasoning Models"
+    aliases:
+      - reasoning AI
+      - reasoning model
+      - test-time compute
+
+  - id: multimodal_ai
+    name: "Multimodal AI"
+    aliases:
+      - multimodal models
+      - vision language models
+      - VLM
+
+  - id: generative_ai
+    name: "Generative AI"
+    aliases:
+      - GenAI
+      - generative artificial intelligence
+
+  - id: open_weight_models
+    name: "Open Weight Models"
+    aliases:
+      - open models
+      - open source AI models
+      - open-weight AI
+
+  - id: small_language_models
+    name: "Small Language Models"
+    aliases:
+      - SLM
+      - small models
+      - compact language models
+
+  - id: model_quantization
+    name: "Model Quantization"
+
+  - id: model_finetuning
+    name: "Model Fine-Tuning"
+    aliases:
+      - fine tuning
+      - fine-tuning
+      - PEFT
+      - LoRA
+      - QLoRA
+
+  - id: synthetic_data
+    name: "Synthetic Data"
+
+  - id: ai_evals
+    name: "AI Evaluation"
+    aliases:
+      - LLM evals
+      - model evaluation
+      - AI benchmarks
+
+  - id: ai_benchmarks
+    name: "AI Benchmarks"
+
+  - id: ai_safety
+    name: "AI Safety"
+
+  - id: ai_alignment
+    name: "AI Alignment"
+
+  - id: ai_inference
+    name: "AI Inference"
+
+  - id: inference_optimization
+    name: "Inference Optimization"
+
+  - id: context_windows
+    name: "Context Windows"
+    aliases:
+      - long context
+      - context length
+
+# ============================================================
+# 2. AI APPLICATION / AGENT LAYER
+# ============================================================
+
+  - id: ai_agents
+    name: "AI Agents"
+    aliases:
+      - autonomous agents
+      - agentic AI
+      - agentic systems
+
+  - id: coding_agents
+    name: "AI Coding Agents"
+    aliases:
+      - coding agents
+      - code agents
+      - autonomous coding
+
+  - id: browser_agents
+    name: "Browser Agents"
+    aliases:
+      - web agents
+      - browser automation AI
+
+  - id: computer_use
+    name: "Computer Use Agents"
+    aliases:
+      - computer use
+      - computer control AI
+
+  - id: tool_calling
+    name: "Tool Calling"
+    aliases:
+      - function calling
+      - tool use
+
+  - id: model_context_protocol
+    name: "Model Context Protocol"
+    aliases:
+      - MCP
+
+  - id: agent_memory
+    name: "AI Agent Memory"
+
+  - id: multi_agent_systems
+    name: "Multi-Agent Systems"
+    aliases:
+      - multi agent AI
+      - agent swarms
+
+  - id: agent_orchestration
+    name: "Agent Orchestration"
+
+  - id: ai_workflows
+    name: "AI Workflows"
+
+  - id: ai_automation
+    name: "AI Automation"
+
+# ============================================================
+# 3. AI APPLICATION INFRASTRUCTURE
+# ============================================================
+
+  - id: rag
+    name: "Retrieval Augmented Generation"
+    aliases:
+      - RAG
+      - retrieval augmented generation
+
+  - id: vector_databases
+    name: "Vector Databases"
+    aliases:
+      - vector DB
+      - vector search
+
+  - id: embeddings
+    name: "Embeddings"
+
+  - id: semantic_search
+    name: "Semantic Search"
+
+  - id: hybrid_search
+    name: "Hybrid Search"
+
+  - id: reranking
+    name: "Reranking"
+    aliases:
+      - rerankers
+      - reranker models
+
+  - id: llm_observability
+    name: "LLM Observability"
+
+  - id: llm_evaluation
+    name: "LLM Evaluation"
+
+  - id: prompt_engineering
+    name: "Prompt Engineering"
+
+  - id: structured_outputs
+    name: "Structured Outputs"
+
+  - id: ai_gateway
+    name: "AI Gateways"
+
+  - id: llm_routing
+    name: "LLM Routing"
+    aliases:
+      - model routing
+      - AI routing
+
+  - id: model_serving
+    name: "Model Serving"
+
+# ============================================================
+# 4. AI DEVELOPERS / TOOLS
+# ============================================================
+
+  - id: ai_code_generation
+    name: "AI Code Generation"
+
+  - id: ai_ide
+    name: "AI IDEs"
+    aliases:
+      - AI coding IDE
+      - intelligent coding environment
+
+  - id: developer_copilots
+    name: "Developer Copilots"
+
+  - id: code_review_ai
+    name: "AI Code Review"
+
+  - id: software_engineering_agents
+    name: "AI Software Engineering"
+
+  - id: autonomous_software_engineering
+    name: "Autonomous Software Engineering"
+
+  - id: terminal_agents
+    name: "Terminal AI Agents"
+    aliases:
+      - CLI agents
+      - command line AI
+
+# ============================================================
+# 5. SOFTWARE ENGINEERING
+# ============================================================
+
+  - id: software_architecture
+    name: "Software Architecture"
+
+  - id: system_design
+    name: "System Design"
+
+  - id: distributed_systems
+    name: "Distributed Systems"
+
+  - id: microservices
+    name: "Microservices"
+
+  - id: monoliths
+    name: "Monolith Architecture"
+
+  - id: apis
+    name: "APIs"
+    aliases:
+      - REST API
+      - REST APIs
+      - API design
+
+  - id: backend_development
+    name: "Backend Development"
+
+  - id: frontend_development
+    name: "Frontend Development"
+
+  - id: full_stack_development
+    name: "Full Stack Development"
+
+  - id: software_testing
+    name: "Software Testing"
+
+  - id: test_automation
+    name: "Test Automation"
+
+  - id: developer_productivity
+    name: "Developer Productivity"
+
+  - id: developer_experience
+    name: "Developer Experience"
+    aliases:
+      - DevEx
+      - developer experience
+
+  - id: open_source
+    name: "Open Source Software"
+
+# ============================================================
+# 6. CLOUD / INFRASTRUCTURE
+# ============================================================
+
+  - id: cloud_computing
+    name: "Cloud Computing"
+
+  - id: aws
+    name: "Amazon Web Services"
+    aliases:
+      - AWS
+
+  - id: azure
+    name: "Microsoft Azure"
+
+  - id: google_cloud
+    name: "Google Cloud"
+    aliases:
+      - GCP
+
+  - id: cloudflare
+    name: "Cloudflare"
+
+  - id: kubernetes
+    name: "Kubernetes"
+
+  - id: docker
+    name: "Docker"
+
+  - id: containers
+    name: "Containerization"
+
+  - id: serverless
+    name: "Serverless Computing"
+
+  - id: edge_computing
+    name: "Edge Computing"
+
+  - id: infrastructure_as_code
+    name: "Infrastructure as Code"
+    aliases:
+      - IaC
+
+  - id: devops
+    name: "DevOps"
+
+  - id: platform_engineering
+    name: "Platform Engineering"
+
+  - id: devsecops
+    name: "DevSecOps"
+
+  - id: observability
+    name: "Observability"
+
+  - id: site_reliability
+    name: "Site Reliability Engineering"
+    aliases:
+      - SRE
+
+# ============================================================
+# 7. DATA
+# ============================================================
+
+  - id: databases
+    name: "Databases"
+
+  - id: postgresql
+    name: "PostgreSQL"
+
+  - id: sql
+    name: "SQL"
+
+  - id: vector_data
+    name: "Vector Data"
+
+  - id: data_engineering
+    name: "Data Engineering"
+
+  - id: data_pipelines
+    name: "Data Pipelines"
+
+  - id: data_infrastructure
+    name: "Data Infrastructure"
+
+  - id: data_lakes
+    name: "Data Lakes"
+
+  - id: data_warehouses
+    name: "Data Warehousing"
+
+  - id: streaming
+    name: "Data Streaming"
+
+  - id: analytics_engineering
+    name: "Analytics Engineering"
+
+# ============================================================
+# 8. SECURITY
+# ============================================================
+
+  - id: cybersecurity
+    name: "Cybersecurity"
+
+  - id: application_security
+    name: "Application Security"
+
+  - id: cloud_security
+    name: "Cloud Security"
+
+  - id: ai_security
+    name: "AI Security"
+
+  - id: llm_security
+    name: "LLM Security"
+
+  - id: prompt_injection
+    name: "Prompt Injection"
+
+  - id: supply_chain_security
+    name: "Software Supply Chain Security"
+
+# ============================================================
+# 9. EMERGING / ADJACENT AREAS
+# ============================================================
+
+  - id: robotics_ai
+    name: "AI Robotics"
+
+  - id: embodied_ai
+    name: "Embodied AI"
+
+  - id: edge_ai
+    name: "Edge AI"
+
+  - id: local_ai
+    name: "Local AI"
+
+  - id: on_device_ai
+    name: "On-Device AI"
+
+  - id: ai_hardware
+    name: "AI Hardware"
+
+  - id: gpu_compute
+    name: "GPU Computing"
+
+  - id: ai_acceleration
+    name: "AI Acceleration"
+
+  - id: ai_economics
+    name: "AI Economics"
+
+  - id: open_source_ai
+    name: "Open Source AI"
+
+# ============================================================
+# SOURCE-SPECIFIC SEEDS
+# ============================================================
+
+sources:
+
+  reddit:
+
+    subreddits:
+      - MachineLearning
+      - LocalLLaMA
+      - artificial
+      - OpenAI
+      - ClaudeAI
+      - singularity
+      - learnmachinelearning
+      - programming
+      - ExperiencedDevs
+      - webdev
+      - devops
+      - docker
+      - kubernetes
+      - AWS
+      - learnprogramming
+      - compsci
+      - softwarearchitecture
+      - data-science
+      - cybersecurity
+      - selfhosted
+      - homelab
+      - startups
+
+  hacker_news:
+
+    feeds:
+      - front_page
+      - new
+
+  stack_overflow:
+
+    tags:
+      - python
+      - javascript
+      - typescript
+      - reactjs
+      - node.js
+      - fastapi
+      - django
+      - postgresql
+      - sql
+      - docker
+      - kubernetes
+      - aws
+      - azure
+      - google-cloud
+      - machine-learning
+      - deep-learning
+      - generative-ai
+      - large-language-model
+      - openai-api
+      - embeddings
+      - vector-database
+
+  github:
+
+    topics:
+      - ai
+      - artificial-intelligence
+      - machine-learning
+      - llm
+      - generative-ai
+      - ai-agents
+      - rag
+      - vector-database
+      - embeddings
+      - mcp
+      - developer-tools
+      - devops
+      - kubernetes
+      - cloud
+      - observability
+      - cybersecurity
+
+  arxiv:
+
+    categories:
+      - cs.AI
+      - cs.CL
+      - cs.LG
+      - cs.SE
+      - cs.IR
+      - cs.DC
+      - cs.NI
+      - cs.CV
+      - cs.RO
+
+# ============================================================
+# OFFICIAL / PRIMARY SOURCES
+# ============================================================
+
+  rss:
+    feeds:
+      - name: "OpenAI"
+        url: "https://openai.com/news/rss.xml"
+
+      - name: "Google AI"
+        url: "https://blog.google/technology/ai/rss/"
+
+      - name: "AWS Machine Learning Blog"
+        url: "https://aws.amazon.com/blogs/machine-learning/feed/"
+
+# ============================================================
+# INITIAL COLLECTION POLICY
+# ============================================================
+
+policy:
+
+  bootstrap:
+    enabled: true
+    lookback_days: 60
+    run_once: true
+
+  daily:
+    enabled: true
+    interval: daily
+
+  language:
+    allowed:
+      - en
+
+  discovery:
+    allow_new_concepts: true
+    allow_new_entities: true
+    allow_new_relationships: true
+
+  seed_behavior:
+    seeds_are_beachhead_only: true
+    do_not_treat_seeds_as_complete_vocabulary: true
+    allow_graph_to_expand_beyond_seed_list: true

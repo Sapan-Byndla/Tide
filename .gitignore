@@ -1,0 +1,41 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ---- Node / Next.js ----
+node_modules/
+.next/
+out/
+frontend/coverage/
+npm-debug.log*
+yarn-error.log*
+
+# ---- Environment / secrets ----
+.env
+.env.local
+.env.*.local
+*.pem
+
+# ---- Editors / OS / tooling ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
+.claude/settings.local.json
+
+# ---- Local data / checkpoints (future) ----
+/data/
+/.tide/

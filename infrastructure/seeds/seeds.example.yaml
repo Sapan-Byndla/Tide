@@ -1,0 +1,34 @@
+# TIDE seed source list (EXAMPLE).
+#
+# The historical bootstrap and daily collection workflows read a seed list to
+# know which sources to collect from. This example file documents the schema and
+# contains only placeholder, non-functional entries — Phase 0 contacts no source.
+#
+# Copy to `infrastructure/seeds/seeds.yaml` (git-ignored via /data patterns or a
+# local override) and fill in real sources in a later phase.
+#
+# Schema (see contracts.models.SeedSource):
+#   id:          stable unique identifier
+#   name:        human-readable label
+#   source_type: rss | forum | social | news | blog | other
+#   url:         base URL / feed
+#   enabled:     whether workers should include it
+#   metadata:    free-form per-source config
+
+version: 1
+sources:
+  - id: example-rss
+    name: Example RSS Feed
+    source_type: rss
+    url: https://example.com/feed.xml
+    enabled: false
+    metadata:
+      note: "placeholder — not collected in Phase 0"
+
+  - id: example-forum
+    name: Example Forum
+    source_type: forum
+    url: https://forum.example.com
+    enabled: false
+    metadata:
+      note: "placeholder — not collected in Phase 0"

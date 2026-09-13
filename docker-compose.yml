@@ -1,0 +1,93 @@
+# TIDE local development environment.
+#
+# Brings up the app plus the backing services later phases will use. In Phase 0
+# the backend does not connect to Postgres/Redis — they are provided so the local
+# environment matches the target architecture and adapters can plug in without
+# changing this file.
+#
+# Usage:
+#   cp .env.example .env
+#   docker compose up --build
+#
+# Services:
+#   postgres  - PostgreSQL 16 + pgvector (structured data + embeddings)
+#   redis     - queue/cache (used only where actually required, later)
+#   backend   - FastAPI host (health endpoint live now)
+#   frontend  - Next.js dev server
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: ${TIDE_POSTGRES_USER:-tide}
+      POSTGRES_PASSWORD: ${TIDE_POSTGRES_PASSWORD:-tide_local_password}
+      POSTGRES_DB: ${TIDE_POSTGRES_DB:-tide}
+    ports:
+      - "${TIDE_POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - tide_pgdata:/var/lib/postgresql/data
+      - ./infrastructure/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${TIDE_POSTGRES_USER:-tide} -d ${TIDE_POSTGRES_DB:-tide}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/backend.Dockerfile
+    env_file:
+      # Optional so `docker compose` works on a fresh checkout before `.env`
+      # exists. Run `make env` (or `cp .env.example .env`) to customize.
+      - path: .env
+        required: false
+    environment:
+      # Point the app at the compose service names (override .env localhost).
+      TIDE_POSTGRES_HOST: postgres
+      TIDE_REDIS_URL: redis://redis:6379/0
+    ports:
+      - "${TIDE_API_PORT:-8000}:8000"
+    volumes:
+      # Live-reload the source during development.
+      - ./backend:/app/backend
+      - ./contracts:/app/contracts
+      - ./scrapers:/app/scrapers
+      - ./intelligence:/app/intelligence
+      - ./graph:/app/graph
+      - ./agent:/app/agent
+      - ./workers:/app/workers
+    command: >
+      uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../infrastructure/docker/frontend.Dockerfile
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  tide_pgdata:
